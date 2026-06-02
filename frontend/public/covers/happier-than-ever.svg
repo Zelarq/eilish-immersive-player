@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+    <defs>
+        <linearGradient id="grad-happier-than-ever" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#dacdbb" />
+            <stop offset="100%" stop-color="#968370" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="500" height="500" fill="url(#grad-happier-than-ever)" />
+    
+    
+            <!-- Elegant classical border & soft blur circles -->
+            <rect x="25" y="25" width="450" height="450" fill="none" stroke="#f4eedb" stroke-width="2" opacity="0.4" rx="10"/>
+            <circle cx="150" cy="180" r="90" fill="#f4eedb" opacity="0.1" filter="blur(20px)" />
+            <circle cx="350" cy="320" r="110" fill="#968370" opacity="0.3" filter="blur(20px)" />
+            <line x1="50" y1="250" x2="450" y2="250" stroke="#f4eedb" stroke-width="0.5" opacity="0.2" />
+        
+    
+    <!-- Title Text and Labels -->
+    <g text-anchor="middle" font-family="'Inter', system-ui, -apple-system, sans-serif">
+        <text x="250" y="220" font-size="28" font-weight="800" fill="#f4eedb" letter-spacing="4" text-transform="uppercase">Happier Than Ever</text>
+        <text x="250" y="270" font-size="12" font-weight="500" fill="#f4eedb" letter-spacing="8" opacity="0.7" text-transform="uppercase">BILLIE EILISH</text>
+    </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+    <defs>
+        <linearGradient id="grad-when-we-all-fall-asleep" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0a0a0a" />
+            <stop offset="100%" stop-color="#212529" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="500" height="500" fill="url(#grad-when-we-all-fall-asleep)" />
+    
+    
+            <!-- Cyberpunk grid/glitch elements -->
+            <path d="M 50 100 L 450 100 M 50 400 L 450 400" stroke="#00ffcc" stroke-width="1" opacity="0.15" />
+            <path d="M 100 50 L 100 450 M 400 50 L 400 450" stroke="#00ffcc" stroke-width="1" opacity="0.15" />
+            <circle cx="250" cy="250" r="120" fill="none" stroke="#00ffcc" stroke-width="1" stroke-dasharray="5,5" opacity="0.3" />
+            <rect x="245" y="100" width="10" height="300" fill="#00ffcc" opacity="0.03" />
+        
+    
+    <!-- Title Text and Labels -->
+    <g text-anchor="middle" font-family="'Inter', system-ui, -apple-system, sans-serif">
+        <text x="250" y="220" font-size="28" font-weight="800" fill="#00ffcc" letter-spacing="4" text-transform="uppercase">WHEN WE ALL FALL ASLEEP</text>
+        <text x="250" y="270" font-size="12" font-weight="500" fill="#00ffcc" letter-spacing="8" opacity="0.7" text-transform="uppercase">WHERE DO WE GO?</text>
+    </g>
+</svg>

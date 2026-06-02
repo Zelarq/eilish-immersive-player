@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+    <defs>
+        <linearGradient id="grad-what-was-i-made-for" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fbc4ab" />
+            <stop offset="100%" stop-color="#ffdab9" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="500" height="500" fill="url(#grad-what-was-i-made-for)" />
+    
+    
+            <!-- Retro Barbie pastel aesthetics -->
+            <circle cx="250" cy="250" r="160" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.4" />
+            <circle cx="250" cy="250" r="150" fill="none" stroke="#fbc4ab" stroke-width="2" opacity="0.5" />
+            <path d="M 120 250 C 180 200, 320 300, 380 250" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.3" />
+        
+    
+    <!-- Title Text and Labels -->
+    <g text-anchor="middle" font-family="'Inter', system-ui, -apple-system, sans-serif">
+        <text x="250" y="220" font-size="28" font-weight="800" fill="#ffffff" letter-spacing="4" text-transform="uppercase">What Was I Made For?</text>
+        <text x="250" y="270" font-size="12" font-weight="500" fill="#ffffff" letter-spacing="8" opacity="0.7" text-transform="uppercase">FROM THE MOTION PICTURE BARBIE</text>
+    </g>
+</svg>

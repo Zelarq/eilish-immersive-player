@@ -1,0 +1,372 @@
+/* Core design system variables and styling rules */
+:root {
+  --color-bg-deep-navy: #033047;
+  --color-bg-slate-blue: #304C62;
+  --color-muted-blue: #5C677D;
+  --color-light-grey: #D9D9D9;
+  --color-off-white: #F4F3EE;
+  
+  /* Additional UI variables for premium feel */
+  --glow-color: rgba(244, 243, 238, 0.25);
+  --shadow-color: rgba(3, 48, 71, 0.5);
+  --transition-speed: 0.4s;
+  --font-ui: 'Inter', sans-serif;
+  --font-lyrics: 'Beau Rivage', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background-color: var(--color-bg-deep-navy);
+  color: var(--color-light-grey);
+  font-family: var(--font-ui);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbars for library and lyrics */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-deep-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-light-grey);
+}
+
+/* Common interactive class styles */
+.btn {
+  background: none;
+  border: none;
+  color: var(--color-light-grey);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.btn:hover {
+  color: var(--color-off-white);
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  color: var(--color-bg-deep-navy);
+  background-color: var(--color-off-white);
+  box-shadow: 0 4px 14px var(--glow-color);
+}
+
+.btn-primary:hover {
+  color: var(--color-bg-deep-navy);
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Primary layouts styling */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-bg-deep-navy);
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sidebar styling (20% width) */
+.sidebar {
+  width: 20%;
+  min-width: 240px;
+  max-width: 320px;
+  background-color: var(--color-bg-deep-navy);
+  border-right: 1px solid var(--color-muted-blue);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+/* Main Stage styling (Remaining 80% width) */
+.main-stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-color: #022538;
+}
+
+/* Swapping Focal Panels styling */
+.stage-panel {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.stage-panel.center-focus {
+  left: 0;
+  width: 62%;
+  z-index: 2;
+}
+
+.stage-panel.right-focus {
+  left: 62%;
+  width: 38%;
+  z-index: 1;
+  border-left: 1px solid var(--color-muted-blue);
+  background-color: rgba(3, 48, 71, 0.4);
+}
+
+/* Panel Contents */
+.panel-container {
+  flex: 1;
+  background-color: var(--color-bg-slate-blue);
+  border-radius: 16px;
+  border: 1px solid rgba(92, 103, 125, 0.3);
+  box-shadow: 0 8px 32px var(--shadow-color);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease;
+}
+
+.center-focus .panel-container {
+  border-color: rgba(244, 243, 238, 0.2);
+}
+
+.right-focus .panel-container {
+  cursor: pointer;
+}
+
+.right-focus .panel-container:hover {
+  border-color: var(--color-muted-blue);
+  box-shadow: 0 12px 40px rgba(3, 48, 71, 0.7);
+}
+
+/* Hover Overlay for Inactive Panels */
+.panel-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(3, 48, 71, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.right-focus .panel-container:hover .panel-hover-overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  background-color: var(--color-bg-deep-navy);
+  color: var(--color-off-white);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--color-muted-blue);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* Bottom playback bar */
+.bottom-playback-controller {
+  height: 88px;
+  background-color: var(--color-bg-deep-navy);
+  border-top: 1px solid var(--color-muted-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 20;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Seeker progress bar style */
+.progress-bar-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: var(--color-muted-blue);
+  font-weight: 500;
+}
+
+.progress-bar-rail {
+  flex: 1;
+  height: 4px;
+  background-color: var(--color-bg-slate-blue);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  transition: height 0.15s ease;
+}
+
+.progress-bar-rail:hover {
+  height: 6px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-light-grey);
+  border-radius: 2px;
+  position: relative;
+}
+
+.progress-bar-rail:hover .progress-bar-fill {
+  background-color: var(--color-off-white);
+}
+
+.progress-bar-handle {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-off-white);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.15s ease;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.progress-bar-rail:hover .progress-bar-handle {
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* Volume Slider */
+.volume-slider {
+  -webkit-appearance: none;
+  width: 80px;
+  height: 4px;
+  background: var(--color-bg-slate-blue);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-value {
+  background: var(--color-light-grey);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-light-grey);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+  background: var(--color-off-white);
+}
+
+/* Beau Rivage Lyrics typography classes */
+.lyrics-text {
+  font-family: var(--font-lyrics);
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2.2rem;
+  line-height: 1.6;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Synced active lyrics highlighting */
+.lyric-line {
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  opacity: 0.35;
+  color: var(--color-light-grey);
+  transform: scale(0.96);
+  transform-origin: center;
+}
+
+.lyric-line:hover {
+  opacity: 0.8;
+  color: var(--color-off-white);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.lyric-line.active {
+  opacity: 1;
+  color: var(--color-off-white);
+  text-shadow: 0 0 15px rgba(244, 243, 238, 0.4), 0 0 30px rgba(244, 243, 238, 0.2);
+  transform: scale(1.06);
+}
+
+/* Hide native controls overlay for YouTube embed when non-interactive */
+.youtube-iframe-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+.youtube-iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none; /* Block direct YouTube interactions to catch clicks via React wrapper */
+}
+
+/* Allow click throughs except for specific elements */
+.interactive-elements {
+  pointer-events: auto !important;
+}
+
+/* Global animations for vinyl spin and equalizer */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes equalize {
+  0% { transform: scaleY(0.15); }
+  100% { transform: scaleY(1); }
+}
